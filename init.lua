@@ -1,5 +1,4 @@
 -- Module for managing pop up windows in NeoVim
-
 local M = {}
 
 
@@ -42,11 +41,14 @@ M.open_popup = function(opts)
     return win, buf
 end
 
-vim.api.nvim_set_keymap(
-    "n",
-    "<leader>p",
-    ":lua require('test').open_popup({ title = 'Pop up is here!', content = {'Welcome', 'Start Coding'} })<CR>",
-    { noremap = true, silent = true }
-)
+M.setup = function(opts)
+    vim.api.nvim_set_keymap(
+        "n",
+        "<leader>p",
+        ":lua require('test').open_popup({ title = 'Pop up is here!', content = {'Welcome', 'Start Coding'} })<CR>",
+        { noremap = true, silent = true }
+    )
+end
+
 
 return M
