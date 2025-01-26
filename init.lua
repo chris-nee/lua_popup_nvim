@@ -42,5 +42,14 @@ M.open_popup = function(opts)
     return win, buf
 end
 
+M.setup = function(opts)
+    vim.api.nvim_set_keymap(
+        "n",
+        "<leader>p",
+        ":lua require('init').open_popup({ title = 'Pop up is here!', content = {'Welcome', 'Start Coding'} })<CR>",
+        { noremap = true, silent = true }
+    )
+end
+
 
 return M
